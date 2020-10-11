@@ -35,7 +35,7 @@ export const unPokemonDetalleAccion = (url = 'https://pokeapi.co/api/v2/pokemon/
             type: POKE_INFO_EXITO,
             payload:JSON.parse(localStorage.getItem(url))
         })
-        console.log("Datos desde el local storage")
+        // console.log("Datos desde el local storage")
         return
     }
     
@@ -69,7 +69,7 @@ export const obtenerPokemonesAccion = () => async(dispatch) => {
     //Para pasar de una JSON a datos es parse 
 
     if(localStorage.getItem('offset=0')){
-        console.log("datos guardados en local")
+        // console.log("datos guardados en local")
         dispatch({
             type: OBTENER_POKEMOS_EXITO,
             payload: JSON.parse(localStorage.getItem('offset=0'))
@@ -80,7 +80,7 @@ export const obtenerPokemonesAccion = () => async(dispatch) => {
     try {
         console.log("Datos desde la api")
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=10`)
-        console.log(res.data)
+        // console.log(res.data)
         dispatch({
             type: OBTENER_POKEMOS_EXITO,
             payload: res.data
@@ -98,7 +98,7 @@ export const siguientePokemonAccion = () => async(dispatch, getState) => {
     const {next} = getState().pokemones
 
     if(localStorage.getItem(next)){
-        console.log("Datos siguiente guardados en local")
+        // console.log("Datos siguiente guardados en local")
         dispatch({
             type: OBTENER_POKEMOS_EXITO,
             payload: JSON.parse(localStorage.getItem(next))
@@ -107,7 +107,7 @@ export const siguientePokemonAccion = () => async(dispatch, getState) => {
     }
 
     try {
-        console.log("datos desde la api")
+        // console.log("datos desde la api")
         const res = await axios.get(next)
         dispatch({
             type: SIGUIENTE_POKEMOS_EXITO,
@@ -123,7 +123,7 @@ export const anteriorPokemonAccion = () => async(dispatch, getState) => {
     const {previous} = getState().pokemones
 
     if(localStorage.getItem(previous)){
-        console.log("Datos siguiente guardados en local")
+        // console.log("Datos siguiente guardados en local")
         dispatch({
             type: OBTENER_POKEMOS_EXITO,
             payload: JSON.parse(localStorage.getItem(previous))
