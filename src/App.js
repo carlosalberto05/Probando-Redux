@@ -2,9 +2,12 @@ import React,{useEffect, useState} from 'react'
 import Pokemones from './components/Pokemones'
 import Login from './components/Login'
 import Navbar from './components/Navbar'
+import Perfil from './components/Perfil'
+
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom"
 
 import {auth} from "./firebase"
+
 
 
 
@@ -47,6 +50,7 @@ function App() {
 
         <Switch>
           <RutaPrivada component={Pokemones} path="/" exact />
+          <RutaPrivada component={Perfil} path="/perfil" exact />
           <Route component={Login} path="/login" exact/>
         </Switch>
       
