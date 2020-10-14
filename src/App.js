@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const fetchUser = () => {
       auth.onAuthStateChanged(user => {
-        console.log(user)
+        // console.log(user)
         if(user){
           setFirebaseUser(user)
         } else {
